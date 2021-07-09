@@ -4,8 +4,16 @@ import '../components/reusable_card.dart';
 import '../components/bottom_button.dart';
 
 class ResultsPage extends StatelessWidget {
+  // final String bmiResult;
+  // final String resultText;
+  // final String interpretation;
+  // ResultsPage(
+  //     {required this.bmiResult,
+  //     required this.resultText,
+  //     required this.interpretation});
   @override
   Widget build(BuildContext context) {
+    final _args = ModalRoute.of(context)!.settings.arguments as List;
     return Scaffold(
       appBar: AppBar(title: Text('BMI Calculator')),
       body: Column(
@@ -32,15 +40,15 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(
-                    'Normal',
+                    _args[1],
                     style: kResultTextStyle,
                   ),
                   Text(
-                    '18.3',
+                    _args[0],
                     style: kBMITextStyle,
                   ),
                   Text(
-                    'Your BMI Result Is Very Good!',
+                    _args[2],
                     style: kBodyTextStyle,
                     textAlign: TextAlign.center,
                   ),
